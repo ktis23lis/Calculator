@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/sky"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_columnSpan="3"
+    android:gravity="center"
+    android:orientation="horizontal"
+    tools:context=".MainActivity">
+
+
+
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/_1"
+            android:textSize="@dimen/button_text_size"
+            android:textStyle="bold"
+            app:backgroundTint="#66686A"
+            android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/_2"
+            android:textSize="@dimen/button_text_size"
+            android:textStyle="bold"
+            app:backgroundTint="#66686A"
+            android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp" />
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/_3"
+            android:textSize="@dimen/button_text_size"
+            android:textStyle="bold"
+            app:backgroundTint="#66686A"
+            android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp" />
+        <Button
+            android:id="@+id/buttonShare"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/share"
+            android:textSize="@dimen/button_text_size"
+            android:textStyle="bold"
+            app:backgroundTint="#D39438"/>
+
+    </TableRow>
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/_4"
+            android:textSize="@dimen/button_text_size"
+            android:textStyle="bold"
+            app:backgroundTint="#66686A"
+            android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp" />
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/_5"
+            android:textSize="@dimen/button_text_size"
+            android:textStyle="bold"
+            app:backgroundTint="#66686A"
+            android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp" />
+        <Button
+            android:id="@+id/button6"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/_6"
+            android:textSize="@dimen/button_text_size"
+            android:textStyle="bold"
+            app:backgroundTint="#66686A"
+            android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp" />
+        <Button
+            android:id="@+id/buttonMultiply"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/multiply"
+            android:textSize="@dimen/button_text_size"
+            android:textStyle="bold"
+            app:backgroundTint="#D39438"/>
+
+    </TableRow>
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
+        <Button
+            android:id="@+id/button7"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/_7"
+            android:textSize="@dimen/button_text_size"
+            android:textStyle="bold"
+            app:backgroundTint="#66686A"
+            android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp" />
+        <Button
+            android:id="@+id/button8"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/_8"
+            android:textSize="@dimen/button_text_size"
+            android:textStyle="bold"
+            app:backgroundTint="#66686A"
+            android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp" />
+        <Button
+            android:id="@+id/button9"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/_9"
+            android:textSize="@dimen/button_text_size"
+            android:textStyle="bold"
+            app:backgroundTint="#66686A"
+            android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp" />
+        <Button
+            android:id="@+id/buttonMin"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/min"
+            android:textSize="@dimen/button_text_size"
+            android:textStyle="bold"
+            app:backgroundTint="#D39438"/>
+
+    </TableRow>
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
+        <Button
+            android:id="@+id/button0"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/_0"
+            android:textSize="@dimen/button_text_size"
+            android:layout_span="2"
+            android:textStyle="bold"
+            app:backgroundTint="#66686A"
+            android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp" />
+
+        <Button
+            android:id="@+id/buttonEquals"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/equals"
+            android:textSize="@dimen/button_text_size"
+            android:textStyle="bold"
+            app:backgroundTint="#D39438"
+            android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp" />
+        <Button
+            android:id="@+id/buttonSum"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/sum"
+            android:textSize="@dimen/button_text_size"
+            android:textStyle="bold"
+            app:backgroundTint="#D39438"/>
+
+
+    </TableRow>
+
+
+
+
+
+
+
+</TableLayout>
