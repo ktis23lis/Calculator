@@ -203,9 +203,7 @@ public class MainActivity extends AppCompatActivity  implements Serializable {
                         outputTextView.setText("ERROR");
                     break;
             }
-
         });
-
 
     }
 
