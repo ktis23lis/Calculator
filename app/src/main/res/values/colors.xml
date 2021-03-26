@@ -8,4 +8,6 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="gray">#808080</color>
+    <color name="color_btn_nub">#66686A</color>
+    <color name="color_bnt_oper">#D39438</color>
 </resources>
