@@ -11,6 +11,72 @@
     android:orientation="horizontal"
     tools:context=".MainActivity">
 
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
+
+        <TextView
+            android:layout_column="3"
+            android:id="@+id/caseTextView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:gravity="right"/>
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
+        <TextView
+            android:id="@+id/inputTextView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_span="4"
+            android:textColor="@color/black"
+            android:textSize="40sp"
+            android:gravity="right"
+            tools:ignore="HardcodedText,RtlHardcoded" />
+    </TableRow>
+
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
+        <TextView
+            android:id="@+id/outputTextView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_span="4"
+            android:textColor="@color/black"
+            android:textSize="40sp"
+            android:gravity="right"
+            android:layout_marginBottom="20dp"
+            tools:ignore="HardcodedText,RtlHardcoded" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
+
+        <Button
+            android:layout_column="3"
+            android:id="@+id/buttonClear"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/c"
+            android:textSize="@dimen/button_text_size"
+            android:textStyle="bold"
+            app:backgroundTint="@color/color_bnt_oper"/>
+
+    </TableRow>
+
+
 
 
 
@@ -26,7 +92,7 @@
             android:text="@string/_1"
             android:textSize="@dimen/button_text_size"
             android:textStyle="bold"
-            app:backgroundTint="#66686A"
+            app:backgroundTint="@color/color_btn_nub"
             android:layout_marginRight="10dp"
             android:layout_marginEnd="10dp" />
 
@@ -37,7 +103,7 @@
             android:text="@string/_2"
             android:textSize="@dimen/button_text_size"
             android:textStyle="bold"
-            app:backgroundTint="#66686A"
+            app:backgroundTint="@color/color_btn_nub"
             android:layout_marginRight="10dp"
             android:layout_marginEnd="10dp" />
         <Button
@@ -47,7 +113,7 @@
             android:text="@string/_3"
             android:textSize="@dimen/button_text_size"
             android:textStyle="bold"
-            app:backgroundTint="#66686A"
+            app:backgroundTint="@color/color_btn_nub"
             android:layout_marginRight="10dp"
             android:layout_marginEnd="10dp" />
         <Button
@@ -57,7 +123,7 @@
             android:text="@string/share"
             android:textSize="@dimen/button_text_size"
             android:textStyle="bold"
-            app:backgroundTint="#D39438"/>
+            app:backgroundTint="@color/color_bnt_oper"/>
 
     </TableRow>
     <TableRow
@@ -71,7 +137,7 @@
             android:text="@string/_4"
             android:textSize="@dimen/button_text_size"
             android:textStyle="bold"
-            app:backgroundTint="#66686A"
+            app:backgroundTint="@color/color_btn_nub"
             android:layout_marginRight="10dp"
             android:layout_marginEnd="10dp" />
         <Button
@@ -81,7 +147,7 @@
             android:text="@string/_5"
             android:textSize="@dimen/button_text_size"
             android:textStyle="bold"
-            app:backgroundTint="#66686A"
+            app:backgroundTint="@color/color_btn_nub"
             android:layout_marginRight="10dp"
             android:layout_marginEnd="10dp" />
         <Button
@@ -91,7 +157,7 @@
             android:text="@string/_6"
             android:textSize="@dimen/button_text_size"
             android:textStyle="bold"
-            app:backgroundTint="#66686A"
+            app:backgroundTint="@color/color_btn_nub"
             android:layout_marginRight="10dp"
             android:layout_marginEnd="10dp" />
         <Button
@@ -101,7 +167,7 @@
             android:text="@string/multiply"
             android:textSize="@dimen/button_text_size"
             android:textStyle="bold"
-            app:backgroundTint="#D39438"/>
+            app:backgroundTint="@color/color_bnt_oper"/>
 
     </TableRow>
     <TableRow
@@ -115,7 +181,7 @@
             android:text="@string/_7"
             android:textSize="@dimen/button_text_size"
             android:textStyle="bold"
-            app:backgroundTint="#66686A"
+            app:backgroundTint="@color/color_btn_nub"
             android:layout_marginRight="10dp"
             android:layout_marginEnd="10dp" />
         <Button
@@ -125,7 +191,7 @@
             android:text="@string/_8"
             android:textSize="@dimen/button_text_size"
             android:textStyle="bold"
-            app:backgroundTint="#66686A"
+            app:backgroundTint="@color/color_btn_nub"
             android:layout_marginRight="10dp"
             android:layout_marginEnd="10dp" />
         <Button
@@ -135,7 +201,7 @@
             android:text="@string/_9"
             android:textSize="@dimen/button_text_size"
             android:textStyle="bold"
-            app:backgroundTint="#66686A"
+            app:backgroundTint="@color/color_btn_nub"
             android:layout_marginRight="10dp"
             android:layout_marginEnd="10dp" />
         <Button
@@ -145,7 +211,7 @@
             android:text="@string/min"
             android:textSize="@dimen/button_text_size"
             android:textStyle="bold"
-            app:backgroundTint="#D39438"/>
+            app:backgroundTint="@color/color_bnt_oper"/>
 
     </TableRow>
     <TableRow
@@ -160,7 +226,7 @@
             android:textSize="@dimen/button_text_size"
             android:layout_span="2"
             android:textStyle="bold"
-            app:backgroundTint="#66686A"
+            app:backgroundTint="@color/color_btn_nub"
             android:layout_marginRight="10dp"
             android:layout_marginEnd="10dp" />
 
@@ -171,7 +237,7 @@
             android:text="@string/equals"
             android:textSize="@dimen/button_text_size"
             android:textStyle="bold"
-            app:backgroundTint="#D39438"
+            app:backgroundTint="@color/color_bnt_oper"
             android:layout_marginRight="10dp"
             android:layout_marginEnd="10dp" />
         <Button
@@ -181,7 +247,7 @@
             android:text="@string/sum"
             android:textSize="@dimen/button_text_size"
             android:textStyle="bold"
-            app:backgroundTint="#D39438"/>
+            app:backgroundTint="@color/color_bnt_oper"/>
 
 
     </TableRow>
