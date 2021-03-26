@@ -17,7 +17,6 @@ public class MainActivity extends AppCompatActivity  implements Serializable {
     private Button btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9,
             btn0, btnShare, btnMultiply, btnMin, btnSum, btnEquals, buttonClear;
     private TextView inputTextView, outputTextView, caseTextView;
-    private final static String keyText = "KEYTEXT";
     private String helperProcess;
     private ArrayList arrayList;
     private String arrayHelper;
@@ -38,8 +37,6 @@ public class MainActivity extends AppCompatActivity  implements Serializable {
         buttonNum();
         buttonOption();
         equalsMethod();
-
-
     }
 
     private void findView() {
@@ -123,8 +120,6 @@ public class MainActivity extends AppCompatActivity  implements Serializable {
             helperProcess = inputTextView.getText().toString();
             inputTextView.setText(helperProcess + "0");
         });
-
-
 
     }
 
@@ -210,6 +205,8 @@ public class MainActivity extends AppCompatActivity  implements Serializable {
             }
 
         });
+
+
     }
 
 
