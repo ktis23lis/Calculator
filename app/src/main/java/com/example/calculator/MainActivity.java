@@ -1,13 +1,17 @@
 package com.example.calculator;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
+import androidx.appcompat.widget.SwitchCompat;
 
 import android.annotation.SuppressLint;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
+
+
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -16,16 +20,26 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity  implements Serializable {
     private Button btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9,
             btn0, btnShare, btnMultiply, btnMin, btnSum, btnEquals, buttonClear;
+    private SwitchCompat aSwitch;
     private TextView inputTextView, outputTextView, caseTextView;
     private String helperProcess;
-    private ArrayList arrayList;
+    private final ArrayList<String> arrayList = new ArrayList<>();
     private String arrayHelper;
     private String equalsHelper;
     private String operator;
     private String stringAboutSecondNum;
+    private String outputTextViewHelper;
     private float result;
     private int firstNum;
     private int secondNum;
+    final static String inputTextViewKey = "INPUT_KEY";
+    final static String outputTextViewKey = "OUTPUT_KEY";
+    final static String caseTextViewKey = "CASE_KEY";
+    final static String arrayKey = "Array_KEY";
+    SharedPreferences sharedPreferences = null;
+    final static String booleanKey = "night_mode";
+
+
 
 
     @Override
@@ -33,10 +47,14 @@ public class MainActivity extends AppCompatActivity  implements Serializable {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         findView();
         buttonNum();
         buttonOption();
         equalsMethod();
+        changeTheme();
+
+
     }
 
     private void findView() {
@@ -59,6 +77,9 @@ public class MainActivity extends AppCompatActivity  implements Serializable {
         outputTextView = findViewById(R.id.outputTextView);
         buttonClear = findViewById(R.id.buttonClear);
         caseTextView = findViewById(R.id.caseTextView);
+        aSwitch = findViewById(R.id.aSwitch);
+
+
 
     }
 
@@ -69,6 +90,7 @@ public class MainActivity extends AppCompatActivity  implements Serializable {
             inputTextView.setText("");
             outputTextView.setText("");
             caseTextView.setText("");
+            arrayList.remove(0);
 
         });
 
@@ -120,7 +142,6 @@ public class MainActivity extends AppCompatActivity  implements Serializable {
             helperProcess = inputTextView.getText().toString();
             inputTextView.setText(helperProcess + "0");
         });
-
     }
 
     @SuppressLint("SetTextI18n")
@@ -168,14 +189,16 @@ public class MainActivity extends AppCompatActivity  implements Serializable {
     }
 
     private void arrayListInit() {
-        arrayList = new ArrayList();
         arrayHelper = inputTextView.getText().toString();
         arrayList.add(arrayHelper);
     }
 
+    @SuppressLint("SetTextI18n")
     private void equalsMethod() {
         btnEquals.setOnClickListener(v -> {
-            firstNum = Integer.parseInt(arrayList.get(0).toString());
+            if (arrayList.size() > 0) {
+                firstNum = Integer.parseInt(arrayList.get(0));
+            } else firstNum = Integer.parseInt("0");
             stringAboutSecondNum = inputTextView.getText().toString();
             secondNum = Integer.parseInt(stringAboutSecondNum.trim());
             switch (operator) {
@@ -200,14 +223,96 @@ public class MainActivity extends AppCompatActivity  implements Serializable {
                         equalsHelper = Float.toString(result);
                         outputTextView.setText(equalsHelper);
                     } else
-                        outputTextView.setText("ERROR");
+                        outputTextView.setText(R.string.error_main);
                     break;
+            }
+        });
+//
+//        sharedPreferences = getSharedPreferences("night", 0);
+//        Boolean booleanValue = sharedPreferences.getBoolean(booleanKey, true);
+//        if (booleanValue){
+//            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+//            aSwitch.setChecked(true);
+//        }
+//        aSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//                if (isChecked){
+//                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+//                    aSwitch.setChecked(true);
+//                    SharedPreferences.Editor editor = sharedPreferences.edit();
+//                    editor.putBoolean(booleanKey, true);
+//                    editor.commit();
+//                }else {
+//                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+//                    aSwitch.setChecked(false);
+//                    SharedPreferences.Editor editor = sharedPreferences.edit();
+//                    editor.putBoolean(booleanKey, false);
+//                    editor.commit();
+//                }
+//            }
+//        });
+
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString(caseTextViewKey, operator);
+        outState.putString(caseTextViewKey, caseTextView.getText().toString());
+        outState.putString(inputTextViewKey, stringAboutSecondNum);
+        outState.putString(inputTextViewKey, inputTextView.getText().toString());
+        outState.putString(outputTextViewKey, outputTextViewHelper);
+        outState.putString(outputTextViewKey, outputTextView.getText().toString());
+
+        outState.putString(arrayKey, arrayHelper);
+        if (arrayList.size() > 0) {
+            outState.putString(arrayKey, arrayList.get(0));
+        }
+
+    }
+
+    @Override
+    public void onRestoreInstanceState(Bundle saveInstanceState) {
+        super.onRestoreInstanceState(saveInstanceState);
+        operator = saveInstanceState.getString(caseTextViewKey);
+        caseTextView.setText(operator);
+        stringAboutSecondNum = saveInstanceState.getString(inputTextViewKey);
+        inputTextView.setText(stringAboutSecondNum);
+        outputTextViewHelper = saveInstanceState.getString(outputTextViewKey);
+        outputTextView.setText(outputTextViewHelper);
+        arrayHelper = saveInstanceState.getString(arrayKey);
+        arrayList.add(arrayHelper);
+    }
+
+
+    private void changeTheme(){
+        sharedPreferences = getSharedPreferences("night", 0);
+        Boolean booleanValue = sharedPreferences.getBoolean(booleanKey, true);
+        if (booleanValue){
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+            aSwitch.setChecked(true);
+        }
+        aSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked){
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                aSwitch.setChecked(true);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putBoolean(booleanKey, true);
+                editor.commit();
+            }else {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                aSwitch.setChecked(false);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putBoolean(booleanKey, false);
+                editor.commit();
             }
         });
 
     }
-
-
-
-
 }
+
+
+
+
+

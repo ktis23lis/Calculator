@@ -3,7 +3,6 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@drawable/sky"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_columnSpan="3"
@@ -16,14 +15,21 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center">
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/aSwitch"
+            android:text="@string/change_theme"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+
 
         <TextView
             android:id="@+id/inputTextView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_span="3"
-            android:textColor="@color/black"
-            android:textSize="30sp"
+            android:textColor="@color/textColor"
+            android:textSize="@dimen/input_output_text_size"
             android:gravity="right"
             tools:ignore="HardcodedText,RtlHardcoded" />
 
@@ -32,9 +38,10 @@
             android:id="@+id/caseTextView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            android:gravity="right"/>
+            android:textColor="@color/textColor"
+            android:textSize="@dimen/case_text_size"
+            android:gravity="right"
+            android:maxLength="1"/>
     </TableRow>
 
 
@@ -49,21 +56,19 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_span="3"
-            android:textColor="@color/black"
-            android:textSize="30sp"
+            android:textColor="@color/textColor"
+            android:textSize="@dimen/input_output_text_size"
             android:gravity="right"
-            android:layout_marginBottom="10dp"
             tools:ignore="HardcodedText,RtlHardcoded"
             android:layout_marginRight="5dp" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/buttonClear"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="@string/c"
-            android:textSize="@dimen/button_text_size"
-            android:textStyle="bold"
-            app:backgroundTint="@color/color_bnt_oper" />
+            style="@style/buttonOperStyle"
+            android:textStyle="bold"/>
 
     </TableRow>
 
@@ -73,47 +78,37 @@
         android:layout_height="match_parent"
         android:gravity="center">
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/button1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginEnd="10dp"
-            android:layout_marginRight="10dp"
             android:text="@string/_1"
-            android:textSize="@dimen/button_text_size"
-            android:textStyle="bold"
-            app:backgroundTint="@color/color_btn_nub" />
+            style="@style/buttonNumStyle"
+            android:textStyle="bold"/>
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/button2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginEnd="10dp"
-            android:layout_marginRight="10dp"
             android:text="@string/_2"
-            android:textSize="@dimen/button_text_size"
-            android:textStyle="bold"
-            app:backgroundTint="@color/color_btn_nub" />
+            style="@style/buttonNumStyle"
+            android:textStyle="bold"/>
 
         <Button
             android:id="@+id/button3"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginEnd="10dp"
-            android:layout_marginRight="10dp"
             android:text="@string/_3"
-            android:textSize="@dimen/button_text_size"
-            android:textStyle="bold"
-            app:backgroundTint="@color/color_btn_nub" />
+            style="@style/buttonNumStyle"
+            android:textStyle="bold"/>
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/buttonShare"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="@string/share"
-            android:textSize="@dimen/button_text_size"
-            android:textStyle="bold"
-            app:backgroundTint="@color/color_bnt_oper" />
+            style="@style/buttonOperStyle"
+            android:textStyle="bold"/>
 
 
     </TableRow>
@@ -122,124 +117,97 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center">
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/button4"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="@string/_4"
-            android:textSize="@dimen/button_text_size"
-            android:textStyle="bold"
-            app:backgroundTint="@color/color_btn_nub"
-            android:layout_marginRight="10dp"
-            android:layout_marginEnd="10dp" />
-        <Button
+            style="@style/buttonNumStyle"
+            android:textStyle="bold"/>
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/button5"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="@string/_5"
-            android:textSize="@dimen/button_text_size"
-            android:textStyle="bold"
-            app:backgroundTint="@color/color_btn_nub"
-            android:layout_marginRight="10dp"
-            android:layout_marginEnd="10dp" />
-        <Button
+            style="@style/buttonNumStyle"
+            android:textStyle="bold"/>
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/button6"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="@string/_6"
-            android:textSize="@dimen/button_text_size"
-            android:textStyle="bold"
-            app:backgroundTint="@color/color_btn_nub"
-            android:layout_marginRight="10dp"
-            android:layout_marginEnd="10dp" />
-        <Button
+            style="@style/buttonNumStyle"
+            android:textStyle="bold"/>
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/buttonMultiply"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="@string/multiply"
-            android:textSize="@dimen/button_text_size"
-            android:textStyle="bold"
-            app:backgroundTint="@color/color_bnt_oper"/>
+            style="@style/buttonOperStyle"
+            android:textStyle="bold"/>
 
     </TableRow>
     <TableRow
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center">
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/button7"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="@string/_7"
-            android:textSize="@dimen/button_text_size"
-            android:textStyle="bold"
-            app:backgroundTint="@color/color_btn_nub"
-            android:layout_marginRight="10dp"
-            android:layout_marginEnd="10dp" />
-        <Button
+            style="@style/buttonNumStyle"
+            android:textStyle="bold"/>
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/button8"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="@string/_8"
-            android:textSize="@dimen/button_text_size"
-            android:textStyle="bold"
-            app:backgroundTint="@color/color_btn_nub"
-            android:layout_marginRight="10dp"
-            android:layout_marginEnd="10dp" />
-        <Button
+            style="@style/buttonNumStyle"
+            android:textStyle="bold"/>
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/button9"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="@string/_9"
-            android:textSize="@dimen/button_text_size"
-            android:textStyle="bold"
-            app:backgroundTint="@color/color_btn_nub"
-            android:layout_marginRight="10dp"
-            android:layout_marginEnd="10dp" />
-        <Button
+            style="@style/buttonNumStyle"
+            android:textStyle="bold"/>
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/buttonMin"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="@string/min"
-            android:textSize="@dimen/button_text_size"
-            android:textStyle="bold"
-            app:backgroundTint="@color/color_bnt_oper"/>
+            style="@style/buttonOperStyle"
+            android:textStyle="bold"/>
 
     </TableRow>
     <TableRow
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center">
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/button0"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="@string/_0"
-            android:textSize="@dimen/button_text_size"
             android:layout_span="2"
-            android:textStyle="bold"
-            app:backgroundTint="@color/color_btn_nub"
-            android:layout_marginRight="10dp"
-            android:layout_marginEnd="10dp" />
+            style="@style/buttonNumStyle"
+            android:textStyle="bold"/>
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/buttonEquals"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="@string/equals"
-            android:textSize="@dimen/button_text_size"
-            android:textStyle="bold"
-            app:backgroundTint="@color/color_bnt_oper"
-            android:layout_marginRight="10dp"
-            android:layout_marginEnd="10dp" />
-        <Button
+            style="@style/buttonOperStyle"
+            android:textStyle="bold"/>
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/buttonSum"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="@string/sum"
-            android:textSize="@dimen/button_text_size"
-            android:textStyle="bold"
-            app:backgroundTint="@color/color_bnt_oper"/>
+            style="@style/buttonOperStyle"
+            android:textStyle="bold"/>
 
 
     </TableRow>
