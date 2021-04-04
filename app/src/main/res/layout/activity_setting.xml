@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SettingActivity">
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:layout_marginStart="@dimen/input_output_text_size"
+        android:layout_marginEnd="@dimen/input_output_text_size"
+        android:id="@+id/switchCompat"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/change_theme"
+        />
+
+    <Button
+        android:id="@+id/backBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="436dp"
+        android:text="@string/back"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        style="@style/buttonOperStyle"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
