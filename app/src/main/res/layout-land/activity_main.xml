@@ -15,12 +15,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center">
-        <androidx.appcompat.widget.SwitchCompat
-            android:id="@+id/aSwitch"
-            android:text="@string/change_theme"
+        <Button
+            style="@style/buttonOperStyle"
+            android:text="@string/setting"
+            android:id="@+id/settingBtn"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            />
+            android:layout_height="match_parent"/>
+
 
 
         <TextView

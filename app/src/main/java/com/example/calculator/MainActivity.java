@@ -6,11 +6,12 @@ import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.SwitchCompat;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
-
+import android.widget.Toast;
 
 
 import java.io.Serializable;
@@ -19,25 +20,25 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity  implements Serializable {
     private Button btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9,
-            btn0, btnShare, btnMultiply, btnMin, btnSum, btnEquals, buttonClear;
-    private SwitchCompat aSwitch;
+            btn0, btnShare, btnMultiply, btnMin, btnSum, btnEquals, buttonClear, settingBtn;
     private TextView inputTextView, outputTextView, caseTextView;
     private String helperProcess;
     private final ArrayList<String> arrayList = new ArrayList<>();
-    private String arrayHelper;
+    private String arrayHelper = "0";
     private String equalsHelper;
     private String operator;
     private String stringAboutSecondNum;
     private String outputTextViewHelper;
     private float result;
-    private int firstNum;
+    private int firstNum = 0;
     private int secondNum;
-    final static String inputTextViewKey = "INPUT_KEY";
-    final static String outputTextViewKey = "OUTPUT_KEY";
-    final static String caseTextViewKey = "CASE_KEY";
-    final static String arrayKey = "Array_KEY";
-    SharedPreferences sharedPreferences = null;
+    private final static String inputTextViewKey = "INPUT_KEY";
+    private final static String outputTextViewKey = "OUTPUT_KEY";
+    private final static String caseTextViewKey = "CASE_KEY";
+    private final static String arrayKey = "Array_KEY";
+    private final static String TEXT = "PARAM";
     final static String booleanKey = "night_mode";
+
 
 
 
@@ -46,13 +47,12 @@ public class MainActivity extends AppCompatActivity  implements Serializable {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
         findView();
         buttonNum();
         buttonOption();
         equalsMethod();
-        changeTheme();
+        settingBntActivated();
+        intentFilter();
 
 
     }
@@ -77,20 +77,23 @@ public class MainActivity extends AppCompatActivity  implements Serializable {
         outputTextView = findViewById(R.id.outputTextView);
         buttonClear = findViewById(R.id.buttonClear);
         caseTextView = findViewById(R.id.caseTextView);
-        aSwitch = findViewById(R.id.aSwitch);
-
-
-
+        settingBtn = findViewById(R.id.settingBtn);
     }
 
 
     @SuppressLint("SetTextI18n")
     private void buttonNum() {
         buttonClear.setOnClickListener(v -> {
-            inputTextView.setText("");
-            outputTextView.setText("");
-            caseTextView.setText("");
-            arrayList.remove(0);
+            if (arrayList.size() > 0) {
+                inputTextView.setText("");
+                outputTextView.setText("");
+                caseTextView.setText("");
+                arrayList.remove(0);
+            }else {
+                inputTextView.setText("");
+                outputTextView.setText("");
+                caseTextView.setText("");
+            }
 
         });
 
@@ -151,7 +154,7 @@ public class MainActivity extends AppCompatActivity  implements Serializable {
             caseTextView.setText(helperProcess + "/");
             if (btnShare.isClickable()) {
                 arrayListInit();
-                inputTextView.setText(" ");
+                inputTextView.setText("");
                 operator = "/";
             }
         });
@@ -161,7 +164,7 @@ public class MainActivity extends AppCompatActivity  implements Serializable {
             caseTextView.setText(helperProcess + "-");
             if (btnShare.isClickable()) {
                 arrayListInit();
-                inputTextView.setText(" ");
+                inputTextView.setText("");
                 operator = "-";
             }
         });
@@ -171,7 +174,7 @@ public class MainActivity extends AppCompatActivity  implements Serializable {
             caseTextView.setText(helperProcess + "*");
             if (btnShare.isClickable()) {
                 arrayListInit();
-                inputTextView.setText(" ");
+                inputTextView.setText("");
                 operator = "*";
             }
 
@@ -181,7 +184,7 @@ public class MainActivity extends AppCompatActivity  implements Serializable {
             caseTextView.setText(helperProcess + "+");
             if (btnShare.isClickable()) {
                 arrayListInit();
-                inputTextView.setText(" ");
+                inputTextView.setText("");
                 operator = "+";
             }
         });
@@ -189,71 +192,54 @@ public class MainActivity extends AppCompatActivity  implements Serializable {
     }
 
     private void arrayListInit() {
+
         arrayHelper = inputTextView.getText().toString();
+//        arrayHelper = "55";
         arrayList.add(arrayHelper);
+//        arrayHelper = arrayHelper.replaceAll("\\D", "");
+        firstNum = Integer.parseInt(arrayHelper.trim());
     }
 
     @SuppressLint("SetTextI18n")
     private void equalsMethod() {
-        btnEquals.setOnClickListener(v -> {
-            if (arrayList.size() > 0) {
-                firstNum = Integer.parseInt(arrayList.get(0));
-            } else firstNum = Integer.parseInt("0");
-            stringAboutSecondNum = inputTextView.getText().toString();
-            secondNum = Integer.parseInt(stringAboutSecondNum.trim());
-            switch (operator) {
-                case "+":
-                    result = firstNum + secondNum;
-                    equalsHelper = Integer.toString((int) result);
-                    outputTextView.setText(equalsHelper);
-                    break;
-                case "-":
-                    result = firstNum - secondNum;
-                    equalsHelper = Integer.toString((int) result);
-                    outputTextView.setText(equalsHelper);
-                    break;
-                case "*":
-                    result = firstNum * secondNum;
-                    equalsHelper = Integer.toString((int) result);
-                    outputTextView.setText(equalsHelper);
-                    break;
-                case "/":
-                    if (secondNum != 0) {
-                        result = (float) firstNum / (float) secondNum;
-                        equalsHelper = Float.toString(result);
-                        outputTextView.setText(equalsHelper);
-                    } else
-                        outputTextView.setText(R.string.error_main);
-                    break;
-            }
-        });
-//
-//        sharedPreferences = getSharedPreferences("night", 0);
-//        Boolean booleanValue = sharedPreferences.getBoolean(booleanKey, true);
-//        if (booleanValue){
-//            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-//            aSwitch.setChecked(true);
-//        }
-//        aSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-//            @Override
-//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-//                if (isChecked){
-//                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-//                    aSwitch.setChecked(true);
-//                    SharedPreferences.Editor editor = sharedPreferences.edit();
-//                    editor.putBoolean(booleanKey, true);
-//                    editor.commit();
-//                }else {
-//                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-//                    aSwitch.setChecked(false);
-//                    SharedPreferences.Editor editor = sharedPreferences.edit();
-//                    editor.putBoolean(booleanKey, false);
-//                    editor.commit();
-//                }
-//            }
-//        });
+            btnEquals.setOnClickListener(v -> {
+                if (arrayList.size() > 0) {
+//                    firstNum = Integer.parseInt(arrayList.get(0));
+//                else firstNum = Integer.parseInt("0");
+                    stringAboutSecondNum = inputTextView.getText().toString();
+                    secondNum = Integer.parseInt(stringAboutSecondNum.trim());
+                    switch (operator) {
+                        case "+":
+                            result = firstNum + secondNum;
+                            equalsHelper = Integer.toString((int) result);
+                            outputTextView.setText(equalsHelper);
+                            break;
+                        case "-":
+                            result = firstNum - secondNum;
+                            equalsHelper = Integer.toString((int) result);
+                            outputTextView.setText(equalsHelper);
+                            break;
+                        case "*":
+                            result = firstNum * secondNum;
+                            equalsHelper = Integer.toString((int) result);
+                            outputTextView.setText(equalsHelper);
+                            break;
+                        case "/":
+                            if (secondNum != 0) {
+                                result = (float) firstNum / (float) secondNum;
+                                equalsHelper = Float.toString(result);
+                                outputTextView.setText(equalsHelper);
+                            } else
+                                outputTextView.setText(R.string.error_main);
+                            break;
+                    }
+                }else
+                    Toast.makeText(getApplicationContext(),"введите все значения", Toast.LENGTH_LONG).show();
+            });
 
-    }
+        }
+
+
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
@@ -285,29 +271,23 @@ public class MainActivity extends AppCompatActivity  implements Serializable {
         arrayList.add(arrayHelper);
     }
 
+    private void settingBntActivated(){
+        settingBtn.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, SettingActivity.class);
 
-    private void changeTheme(){
-        sharedPreferences = getSharedPreferences("night", 0);
-        Boolean booleanValue = sharedPreferences.getBoolean(booleanKey, true);
-        if (booleanValue){
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-            aSwitch.setChecked(true);
-        }
-        aSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            if (isChecked){
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-                aSwitch.setChecked(true);
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.putBoolean(booleanKey, true);
-                editor.commit();
-            }else {
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-                aSwitch.setChecked(false);
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.putBoolean(booleanKey, false);
-                editor.commit();
-            }
+            startActivity(intent);
         });
+    }
+
+    private void intentFilter(){
+        Intent intent = getIntent();
+        Bundle bundle = intent.getExtras();
+        if (bundle == null){
+            return;
+        }
+       String text = bundle.getString(TEXT);
+        arrayList.add(text);
+
 
     }
 }

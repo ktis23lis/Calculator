@@ -21,7 +21,9 @@
             android:layout_column="3"
             android:gravity="right"
             android:textColor="@color/textColor"
-            android:textSize="@dimen/case_text_size" />
+            android:textSize="@dimen/case_text_size"
+            android:layout_marginRight="@dimen/input_output_text_size"
+            android:layout_marginEnd="@dimen/input_output_text_size"/>
 
     </TableRow>
 
@@ -32,12 +34,14 @@
 
         <TextView
             android:id="@+id/inputTextView"
-            android:layout_width="match_parent"
+            android:layout_width="376dp"
             android:layout_height="match_parent"
             android:layout_span="4"
             android:gravity="right"
             android:textColor="@color/textColor"
-            android:textSize="@dimen/input_output_text_size" />
+            android:textSize="@dimen/input_output_text_size"
+            android:layout_marginRight="@dimen/input_output_text_size"
+            android:layout_marginEnd="@dimen/input_output_text_size" />
     </TableRow>
 
 
@@ -54,7 +58,9 @@
             android:gravity="right"
             android:textColor="@color/textColor"
             android:textSize="@dimen/input_output_text_size"
-            tools:ignore="HardcodedText,RtlHardcoded" />
+            tools:ignore="HardcodedText,RtlHardcoded"
+            android:layout_marginRight="@dimen/input_output_text_size"
+            android:layout_marginEnd="@dimen/input_output_text_size"/>
     </TableRow>
 
     <TableRow
@@ -81,8 +87,6 @@
         android:gravity="center">
 
         <com.google.android.material.button.MaterialButton
-
-
             android:id="@+id/button1"
             style="@style/buttonNumStyle"
             android:layout_width="match_parent"
@@ -233,12 +237,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center">
-        <androidx.appcompat.widget.SwitchCompat
-            android:id="@+id/aSwitch"
+
+        <Button
+            style="@style/buttonOperStyle"
+            android:text="@string/setting"
+            android:id="@+id/settingBtn"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/change_theme"
-            />
+            android:layout_height="match_parent"/>
+
 
 
 

@@ -23,5 +23,7 @@
     <string name="my_theme">AppTheme</string>
     <string name="app_theme_dark">AppThemeDark</string>
     <string name="change_theme">Change theme</string>
+    <string name="setting">setting</string>
+    <string name="back">back</string>
 
 </resources>
