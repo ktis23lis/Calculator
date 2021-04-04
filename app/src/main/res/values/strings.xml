@@ -15,4 +15,15 @@
     <string name="multiply">*</string>
     <string name="min">-</string>
     <string name="sum">+</string>
+    <string name="c">C</string>
+    <string name="error_main">ERROR</string>
+    <string name="button_num_style">buttonNumStyle</string>
+    <string name="button_oper_style">buttonOperStyle</string>
+    <string name="my_dark_theme">MyAppDarkTheme</string>
+    <string name="my_theme">AppTheme</string>
+    <string name="app_theme_dark">AppThemeDark</string>
+    <string name="change_theme">Change theme</string>
+    <string name="setting">setting</string>
+    <string name="back">back</string>
+
 </resources>
